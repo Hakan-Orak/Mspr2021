@@ -7,7 +7,6 @@
           GoStyleCode
         </q-toolbar-title>
 
-        <div>ta mere</div>
       </q-toolbar>
     </q-header>
 

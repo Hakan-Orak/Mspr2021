@@ -1,47 +1,31 @@
 <template>
   <q-page class="row items-center justify-evenly">
 
-    <qrcode-stream @decode="onDecode"></qrcode-stream>
-
   </q-page>
 </template>
 
 <script>
 
 
-import axios from 'axios';
 import Vue from "vue";
-import VueQrcodeReader from "vue-qrcode-reader";
 
-Vue.use(VueQrcodeReader);
 
 export default {
-  // name: 'PageName',
+  name: 'Home',
   components: {
 
   },
   data() {
     return {
-    salut : "salut hakan",
-      allQrCode : [],
-
+      salut : "salut hakan"
     }
   },
 
   created() {
 
-
     },
 
   mounted() {
-
-    axios.get("https://still-dusk-66823.herokuapp.com/api/promotions/", {})
-    .then(response => {
-      this.allQrCode = response.data['hydra:member']
-      console.log(this.allQrCode)
-    })
-
-
 
   },
 
@@ -55,9 +39,6 @@ export default {
       localStorage.setItem("lameredequi","Antoine")
       this.$router.push('/listePromotion')
     },
-    onDecode (decodedString) {
-      alert(decodedString)
-    }
 
     },
 
