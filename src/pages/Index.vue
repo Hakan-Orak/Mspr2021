@@ -1,49 +1,66 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+
+    <qrcode-stream @decode="onDecode"></qrcode-stream>
+
   </q-page>
 </template>
 
-<script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/OptionsComponent.vue';
-import Vue from 'vue';
+<script>
 
-export default Vue.extend({
-  name: 'PageIndex',
-  components: { ExampleComponent },
+
+import axios from 'axios';
+import Vue from "vue";
+import VueQrcodeReader from "vue-qrcode-reader";
+
+Vue.use(VueQrcodeReader);
+
+export default {
+  // name: 'PageName',
+  components: {
+
+  },
   data() {
-    const todos: Todo[] = [
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
-    ];
-    const meta: Meta = {
-      totalCount: 1200
-    };
-    return { todos, meta };
-  }
-});
+    return {
+    salut : "salut hakan",
+      allQrCode : [],
+
+    }
+  },
+
+  created() {
+
+
+    },
+
+  mounted() {
+
+    axios.get("https://still-dusk-66823.herokuapp.com/api/promotions/", {})
+    .then(response => {
+      this.allQrCode = response.data['hydra:member']
+      console.log(this.allQrCode)
+    })
+
+
+
+  },
+
+  methods: {
+
+    returnLengthSalut(lavariableSalut){
+      return lavariableSalut.length
+    },
+
+    enmenemoitamere(){
+      localStorage.setItem("lameredequi","Antoine")
+      this.$router.push('/listePromotion')
+    },
+    onDecode (decodedString) {
+      alert(decodedString)
+    }
+
+    },
+
+
+}
 </script>

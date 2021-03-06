@@ -12,7 +12,9 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "core-js": "^3.6.5",
-    "quasar": "^1.0.0"
+    "quasar": "^1.0.0",
+    "vue": "^2.6.12",
+    "vue-qrcode-reader": "^2.3.18"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",
