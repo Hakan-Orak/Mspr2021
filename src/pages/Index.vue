@@ -25,19 +25,17 @@
       </template>
     </q-parallax>
   </div>
+
 </template>
 
 <script>
 
 
-import axios from 'axios';
 import Vue from "vue";
-import VueQrcodeReader from "vue-qrcode-reader";
 
-Vue.use(VueQrcodeReader);
 
 export default {
-  // name: 'PageName',
+  name: 'Home',
   components: {
 
   },
@@ -47,24 +45,14 @@ export default {
       password : '',
     salut : "salut hakan",
       allQrCode : [],
-
     }
   },
 
   created() {
 
-
     },
 
   mounted() {
-
-    axios.get("https://still-dusk-66823.herokuapp.com/api/promotions/", {})
-    .then(response => {
-      this.allQrCode = response.data['hydra:member']
-      console.log(this.allQrCode)
-    })
-
-
 
   },
 
@@ -78,9 +66,6 @@ export default {
       localStorage.setItem("lameredequi","Antoine")
       this.$router.push('/listePromotion')
     },
-    onDecode (decodedString) {
-      alert(decodedString)
-    }
 
     },
 

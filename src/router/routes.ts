@@ -7,6 +7,8 @@ const routes: RouteConfig[] = [
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'listePromotion', component: () => import('pages/listePromotion.vue') },
+      { path: 'qrcode', component: () => import('pages/lecteurQRcode.vue') },
+      { path: 'qrcode/:id', component: () => import('pages/lecteurQRcode.vue') }
     ]
   },
 
